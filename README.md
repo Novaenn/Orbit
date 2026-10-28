@@ -17,8 +17,6 @@ bests, and trends. There is no account and nothing is uploaded — your data sta
 | **Insights** | **Activities** |
 | ![Orbit insights showing fitness progression, heart-rate zones, cadence, and training patterns](docs/screenshots/insights.webp) | ![Orbit activities list with search, filters, and race tagging](docs/screenshots/activities.webp) |
 
-The screenshots use the synthetic [`mock-activities.csv`](mock-activities.csv) included in the repository.
-
 ## Running it
 
 ```bash
