@@ -56,4 +56,11 @@ Design Icons, Vitest, and Playwright.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+Orbit is free software licensed under the **GNU General Public License v3.0 only** — see
+[LICENSE](LICENSE).
+
+Copyright (C) 2026 Samuele Bella.
+
+You may redistribute and/or modify Orbit under the terms of GPL-3.0. If you distribute a modified
+version, you must make the corresponding source available under the same license. There is no
+warranty.
