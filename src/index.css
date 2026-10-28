@@ -1,0 +1,405 @@
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+@import '@fontsource/roboto/500.css';
+@import '@fontsource/roboto/700.css';
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Material Design 2 theme.
+ * Colour roles: https://m2.material.io/design/color/the-color-system.html
+ * Dark theme:   https://m2.material.io/design/color/dark-theme.html
+ */
+:root {
+  --md-primary: #3f51b5; /* Indigo 500 */
+  --md-primary-variant: #303f9f; /* Indigo 700 */
+  --md-on-primary: #ffffff;
+  --md-secondary: #f4511e; /* Deep Orange 600 */
+  --md-on-secondary: #000000;
+  --md-background: #fafafa;
+  --md-on-background: #000000;
+  --md-surface: #ffffff;
+  --md-on-surface: #000000;
+  --md-error: #b00020;
+  --md-on-error: #ffffff;
+  --md-success: #2e7d32; /* Green 800 */
+  --md-warning: #b45309;
+
+  /* In the light theme every elevation uses the plain surface colour. */
+  --md-surface-1: #ffffff;
+  --md-surface-2: #ffffff;
+  --md-surface-4: #ffffff;
+  --md-surface-8: #ffffff;
+  --md-surface-16: #ffffff;
+  --md-surface-24: #ffffff;
+
+  /* Top app bar: primary in light theme, elevated surface in dark theme. */
+  --md-app-bar: var(--md-primary);
+  --md-on-app-bar: var(--md-on-primary);
+
+  --md-snackbar: #333333;
+  --md-on-snackbar: rgb(255 255 255 / 0.87);
+  --md-snackbar-action: #9fa8da;
+  --md-tooltip: rgb(97 97 97 / 0.92);
+  --md-scrim: rgb(0 0 0 / 0.32);
+
+  color-scheme: light;
+}
+
+:root.dark {
+  --md-primary: #9fa8da; /* Indigo 200, desaturated for dark surfaces */
+  --md-primary-variant: #7986cb;
+  --md-on-primary: #000000;
+  --md-secondary: #ffab91; /* Deep Orange 200 */
+  --md-on-secondary: #000000;
+  --md-background: #121212;
+  --md-on-background: #ffffff;
+  --md-surface: #121212;
+  --md-on-surface: #ffffff;
+  --md-error: #cf6679;
+  --md-on-error: #000000;
+  --md-success: #81c784;
+  --md-warning: #ffb74d;
+
+  /* Higher elevation = lighter surface (white overlay 5% … 16%). */
+  --md-surface-1: #1e1e1e;
+  --md-surface-2: #222222;
+  --md-surface-4: #272727;
+  --md-surface-8: #2e2e2e;
+  --md-surface-16: #353535;
+  --md-surface-24: #383838;
+
+  --md-app-bar: var(--md-surface-4);
+  --md-on-app-bar: rgb(255 255 255 / 0.87);
+
+  --md-snackbar: #e0e0e0;
+  --md-on-snackbar: rgb(0 0 0 / 0.87);
+  --md-snackbar-action: #3f51b5;
+  --md-tooltip: rgb(97 97 97 / 0.92);
+  --md-scrim: rgb(0 0 0 / 0.5);
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-primary: var(--md-primary);
+  --color-primary-variant: var(--md-primary-variant);
+  --color-on-primary: var(--md-on-primary);
+  --color-secondary: var(--md-secondary);
+  --color-on-secondary: var(--md-on-secondary);
+  --color-background: var(--md-background);
+  --color-on-background: var(--md-on-background);
+  --color-surface: var(--md-surface);
+  --color-surface-1: var(--md-surface-1);
+  --color-surface-2: var(--md-surface-2);
+  --color-surface-4: var(--md-surface-4);
+  --color-surface-8: var(--md-surface-8);
+  --color-surface-16: var(--md-surface-16);
+  --color-surface-24: var(--md-surface-24);
+  --color-on-surface: var(--md-on-surface);
+  --color-error: var(--md-error);
+  --color-on-error: var(--md-on-error);
+  --color-success: var(--md-success);
+  --color-warning: var(--md-warning);
+  --color-app-bar: var(--md-app-bar);
+  --color-on-app-bar: var(--md-on-app-bar);
+  --color-snackbar: var(--md-snackbar);
+  --color-on-snackbar: var(--md-on-snackbar);
+  --color-snackbar-action: var(--md-snackbar-action);
+  --color-tooltip: var(--md-tooltip);
+  --color-scrim: var(--md-scrim);
+}
+
+@theme {
+  --font-sans: 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Noto Color Emoji';
+
+  /* Material responsive layout grid breakpoints. */
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 905px;
+  --breakpoint-lg: 1240px;
+  --breakpoint-xl: 1440px;
+  --breakpoint-2xl: initial;
+
+  /* Material elevation shadows (dp). */
+  --shadow-e1: 0 2px 1px -1px rgb(0 0 0 / 0.2), 0 1px 1px 0 rgb(0 0 0 / 0.14), 0 1px 3px 0 rgb(0 0 0 / 0.12);
+  --shadow-e2: 0 3px 1px -2px rgb(0 0 0 / 0.2), 0 2px 2px 0 rgb(0 0 0 / 0.14), 0 1px 5px 0 rgb(0 0 0 / 0.12);
+  --shadow-e4: 0 2px 4px -1px rgb(0 0 0 / 0.2), 0 4px 5px 0 rgb(0 0 0 / 0.14), 0 1px 10px 0 rgb(0 0 0 / 0.12);
+  --shadow-e6: 0 3px 5px -1px rgb(0 0 0 / 0.2), 0 6px 10px 0 rgb(0 0 0 / 0.14), 0 1px 18px 0 rgb(0 0 0 / 0.12);
+  --shadow-e8: 0 5px 5px -3px rgb(0 0 0 / 0.2), 0 8px 10px 1px rgb(0 0 0 / 0.14), 0 3px 14px 2px rgb(0 0 0 / 0.12);
+  --shadow-e16: 0 8px 10px -5px rgb(0 0 0 / 0.2), 0 16px 24px 2px rgb(0 0 0 / 0.14), 0 6px 30px 5px rgb(0 0 0 / 0.12);
+  --shadow-e24: 0 11px 15px -7px rgb(0 0 0 / 0.2), 0 24px 38px 3px rgb(0 0 0 / 0.14), 0 9px 46px 8px rgb(0 0 0 / 0.12);
+
+  /* Material easing curves. */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Material type scale (Roboto). */
+@utility type-h3 {
+  font-size: 3rem;
+  line-height: 3.125rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@utility type-h4 {
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.0073529412em;
+}
+@utility type-h5 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@utility type-h6 {
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.0125em;
+}
+@utility type-subtitle1 {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.009375em;
+}
+@utility type-subtitle2 {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 500;
+  letter-spacing: 0.0071428571em;
+}
+@utility type-body1 {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.03125em;
+}
+@utility type-body2 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.0178571429em;
+}
+@utility type-button {
+  font-size: 0.875rem;
+  line-height: 2.25rem;
+  font-weight: 500;
+  letter-spacing: 0.0892857143em;
+  text-transform: uppercase;
+}
+@utility type-caption {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.0333333333em;
+}
+@utility type-overline {
+  font-size: 0.75rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.1666666667em;
+  text-transform: uppercase;
+}
+
+/*
+ * Interaction states: an overlay in the content colour.
+ * Hover 4%, focus 12%, pressed shown by the ripple.
+ */
+@utility state-layer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: currentColor;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 15ms linear;
+    z-index: -1;
+  }
+  @media (hover: hover) {
+    &:hover::before {
+      opacity: 0.04;
+    }
+  }
+  &:focus-visible::before {
+    opacity: 0.12;
+  }
+  &:disabled::before {
+    opacity: 0;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background font-sans text-on-background antialiased;
+  }
+
+  :focus-visible {
+    outline: none;
+  }
+
+  button,
+  [role='button'] {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+
+  .recharts-wrapper,
+  .recharts-surface {
+    outline: none;
+  }
+}
+
+/* Ripple (see src/md/ripple.ts). */
+.md-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: currentColor;
+  pointer-events: none;
+  transform: scale(0);
+  opacity: 0.1;
+  z-index: -1;
+  animation: md-ripple-in 225ms var(--ease-decelerate) forwards;
+}
+.md-ripple.is-out {
+  transition: opacity 150ms linear;
+  opacity: 0;
+}
+@keyframes md-ripple-in {
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Snackbar placement: above bottom navigation on phones, beside the rail/drawer on larger screens. */
+.md-snackbar-host {
+  left: 8px;
+  right: 8px;
+  bottom: calc(8px + env(safe-area-inset-bottom));
+}
+@media (min-width: 600px) {
+  .md-snackbar-host {
+    left: 24px;
+    right: auto;
+    bottom: 24px;
+  }
+}
+body:has([data-nav='bottom']) .md-snackbar-host {
+  bottom: calc(64px + env(safe-area-inset-bottom));
+}
+body:has([data-nav='rail']) .md-snackbar-host {
+  left: 96px;
+}
+body:has([data-nav='drawer']) .md-snackbar-host {
+  left: 280px;
+}
+
+/* Indeterminate linear progress. */
+.md-progress-bar {
+  animation: md-progress 1.4s var(--ease-standard) infinite;
+}
+@keyframes md-progress {
+  from {
+    left: -40%;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* Motion: fade (dialogs, menus, snackbars) and fade through (navigation destinations). */
+@keyframes md-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes md-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes md-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes md-fade-through-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+@keyframes md-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes md-sheet-out {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.md-enter-fade {
+  animation: md-fade-in 150ms linear both;
+}
+.md-exit-fade {
+  animation: md-fade-out 75ms linear both;
+}
+.md-enter-scale {
+  animation: md-scale-in 150ms var(--ease-decelerate) both;
+}
+.md-enter-sheet {
+  animation: md-sheet-in 225ms var(--ease-decelerate) both;
+}
+.md-exit-sheet {
+  animation: md-sheet-out 195ms var(--ease-accelerate) both;
+}
+.md-fade-through {
+  animation: md-fade-through-in 210ms var(--ease-decelerate) both;
+}
+
+/* Fade through between navigation destinations (View Transitions API when available). */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+::view-transition-old(md-content) {
+  animation: md-fade-out 90ms var(--ease-accelerate) both;
+}
+::view-transition-new(md-content) {
+  animation: md-fade-through-in 210ms var(--ease-decelerate) 90ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after,
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+  }
+}

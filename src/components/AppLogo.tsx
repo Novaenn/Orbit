@@ -1,0 +1,19 @@
+/** App logo: concentric orbits with two satellites, matching the favicon. */
+export function AppLogo({ size = 40 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      width={size}
+      height={size}
+      aria-hidden="true"
+      className="shrink-0"
+    >
+      <rect width="32" height="32" rx="8" fill="#3f51b5" />
+      <circle cx="16" cy="16" r="12" fill="none" stroke="#fff8e1" strokeWidth="2" />
+      <circle cx="16" cy="16" r="8" fill="none" stroke="#fff8e1" strokeWidth="2" />
+      <circle cx="16" cy="16" r="4" fill="#ffe082" stroke="#fff8e1" strokeWidth="1.2" />
+      <circle cx="7.5" cy="7.5" r="2" fill="#f4511e" />
+      <circle cx="22.9" cy="20" r="2" fill="#4fc3f7" />
+    </svg>
+  )
+}
