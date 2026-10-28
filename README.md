@@ -9,6 +9,16 @@ Orbit is a local-first dashboard for your running history. Export your activitie
 easy-to-read picture of your training: weekly volume, fitness and form, race predictions, personal
 bests, and trends. There is no account and nothing is uploaded — your data stays in your browser.
 
+## Screenshots
+
+| Overview | Races |
+| :---: | :---: |
+| ![Orbit overview showing weekly volume, fitness and form, and the running calendar](docs/screenshots/overview.webp) | ![Orbit races showing predictions, personal bests, and race history](docs/screenshots/races.webp) |
+| **Insights** | **Activities** |
+| ![Orbit insights showing fitness progression, heart-rate zones, cadence, and training patterns](docs/screenshots/insights.webp) | ![Orbit activities list with search, filters, and race tagging](docs/screenshots/activities.webp) |
+
+The screenshots use the synthetic [`mock-activities.csv`](mock-activities.csv) included in the repository.
+
 ## Running it
 
 ```bash
