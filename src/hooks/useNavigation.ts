@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { flushSync } from 'react-dom'
 
 interface NavState<T extends string> {
   tab: T
@@ -59,16 +58,8 @@ export function useNavigation<T extends string>(tabs: readonly T[], fallback: T)
       pendingScroll.current = scrollPositions.current[next.tab] ?? 0
     }
 
-    const update = () => flushSync(() => setNav(next))
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    // The detail view animates itself, so only switching destinations gets the page transition.
-    if (tabChanged && document.startViewTransition && !reduceMotion) {
-      const transition = document.startViewTransition(update)
-      transition.ready.catch(() => {})
-      transition.finished.catch(() => {})
-    } else {
-      update()
-    }
+    // The detail view animates itself; tab switches animate the keyed content wrapper.
+    setNav(next)
   }, [])
 
   useEffect(() => {

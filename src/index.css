@@ -343,12 +343,6 @@ body:has([data-nav='drawer']) .md-snackbar-host {
     transform: scale(0.8);
   }
 }
-@keyframes md-fade-through-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92);
-  }
-}
 @keyframes md-sheet-in {
   from {
     transform: translateY(100%);
@@ -376,46 +370,13 @@ body:has([data-nav='drawer']) .md-snackbar-host {
   animation: md-sheet-out 195ms var(--ease-accelerate) both;
 }
 .md-fade-through {
-  animation: md-fade-through-in 210ms var(--ease-decelerate) both;
-}
-
-/* Fade through between navigation destinations (View Transitions API when available). */
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-}
-::view-transition-old(md-content) {
-  animation: md-fade-out 90ms var(--ease-accelerate) both;
-}
-::view-transition-new(md-content) {
-  animation: md-fade-through-in 210ms var(--ease-decelerate) 90ms both;
-}
-
-/*
- * Persistent chrome gets its own snapshots, so the animated page snapshot can't
- * paint over it (view-transition snapshots live in the top layer, above z-index).
- * Freezing the old/new snapshots keeps the bars stable while the content fades.
- */
-[data-app-bar] {
-  view-transition-name: md-app-bar;
-}
-[data-nav='bottom'] {
-  view-transition-name: md-nav;
-}
-::view-transition-old(md-app-bar),
-::view-transition-new(md-app-bar),
-::view-transition-old(md-nav),
-::view-transition-new(md-nav) {
-  animation: none;
+  animation: md-fade-in 180ms var(--ease-decelerate) both;
 }
 
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
-  *::after,
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
+  *::after {
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;
     transition-duration: 1ms !important;

@@ -109,11 +109,10 @@ export function AppShell({
             data was imported before these were read.
           </Banner>
         )}
-        <main
-          style={{ viewTransitionName: 'md-content' }}
-          className="mx-auto w-full max-w-[904px] px-4 pt-4 pb-[calc(72px+env(safe-area-inset-bottom))] sm:px-8 sm:pt-6 sm:pb-8 lg:max-w-[1104px]"
-        >
-          {children}
+        <main className="mx-auto w-full max-w-[904px] px-4 pt-4 pb-[calc(72px+env(safe-area-inset-bottom))] sm:px-8 sm:pt-6 sm:pb-8 lg:max-w-[1104px]">
+          <div key={tab} className="md-fade-through">
+            {children}
+          </div>
         </main>
       </div>
 
@@ -142,10 +141,7 @@ export function TopAppBar({
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header
-      data-app-bar
-      className="sticky top-0 z-30 bg-app-bar pt-[env(safe-area-inset-top)] text-on-app-bar shadow-e4"
-    >
+    <header className="sticky top-0 z-30 bg-app-bar pt-[env(safe-area-inset-top)] text-on-app-bar shadow-e4">
       <div className="flex h-14 items-center gap-1 pr-1 pl-4 sm:h-16 sm:pr-2 sm:pl-6">
         <h1 className="type-h6 min-w-0 flex-1 truncate">{title}</h1>
         {onUpload && <IconButton icon={mdiTrayArrowUp} label="Upload new CSV" onClick={onUpload} />}
