@@ -142,7 +142,10 @@ export function TopAppBar({
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-30 bg-app-bar pt-[env(safe-area-inset-top)] text-on-app-bar shadow-e4">
+    <header
+      data-app-bar
+      className="sticky top-0 z-30 bg-app-bar pt-[env(safe-area-inset-top)] text-on-app-bar shadow-e4"
+    >
       <div className="flex h-14 items-center gap-1 pr-1 pl-4 sm:h-16 sm:pr-2 sm:pl-6">
         <h1 className="type-h6 min-w-0 flex-1 truncate">{title}</h1>
         {onUpload && <IconButton icon={mdiTrayArrowUp} label="Upload new CSV" onClick={onUpload} />}

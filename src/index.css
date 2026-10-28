@@ -391,6 +391,24 @@ body:has([data-nav='drawer']) .md-snackbar-host {
   animation: md-fade-through-in 210ms var(--ease-decelerate) 90ms both;
 }
 
+/*
+ * Persistent chrome gets its own snapshots, so the animated page snapshot can't
+ * paint over it (view-transition snapshots live in the top layer, above z-index).
+ * Freezing the old/new snapshots keeps the bars stable while the content fades.
+ */
+[data-app-bar] {
+  view-transition-name: md-app-bar;
+}
+[data-nav='bottom'] {
+  view-transition-name: md-nav;
+}
+::view-transition-old(md-app-bar),
+::view-transition-new(md-app-bar),
+::view-transition-old(md-nav),
+::view-transition-new(md-nav) {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
