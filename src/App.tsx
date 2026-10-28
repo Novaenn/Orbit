@@ -5,6 +5,7 @@ import { AppShell } from './components/AppShell'
 import { ClearDataDialog, DataDetailsDialog } from './components/DataDialogs'
 import { InsightsTab } from './components/insights/InsightsTab'
 import { OverviewTab } from './components/overview/OverviewTab'
+import { PwaUpdate } from './components/PwaUpdate'
 import { RacesTab } from './components/races/RacesTab'
 import { TABS } from './components/tabs'
 import { UploadScreen } from './components/UploadScreen'
@@ -23,6 +24,7 @@ import { useSnackbar } from './md/snackbarContext'
 export default function App() {
   return (
     <SnackbarProvider>
+      <PwaUpdate />
       <Root />
     </SnackbarProvider>
   )

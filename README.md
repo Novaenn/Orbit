@@ -15,6 +15,7 @@ bests, and trends. There is no account and nothing is uploaded — your data sta
 npm install
 npm run dev       # http://localhost:5173
 npm run build     # production build in dist/
+npm run preview   # serve the production build, including the service worker
 ```
 
 Open the app and choose the activities CSV exported from intervals.icu. Your imported activities and
@@ -22,6 +23,15 @@ race tags are saved in the browser's localStorage.
 
 - **Upload new CSV** is the upload icon in the top app bar.
 - **Data details** and **Clear data** are in the ⋮ menu.
+
+## Installing it as an app
+
+Orbit is a PWA. After the first visit, use **Install** (Chrome/Edge) or **Add to Home Screen**
+(Safari) to open it in its own window. The service worker caches the app shell, so Orbit opens and
+works offline after that first visit; your activities stay in localStorage on the device.
+
+When a new version is deployed, Orbit shows a snackbar with a **Reload** action. Service workers
+require HTTPS in production; localhost is fine for development.
 
 ## Testing
 
@@ -31,7 +41,8 @@ npm run test:e2e  # browser tests (Playwright, uses the installed Chrome)
 ```
 
 The tests read `i463508_activities.csv` from the project root. That personal export is gitignored, so
-place your own intervals.icu export there before running them.
+place your own intervals.icu export there before running them. The browser suite also checks the web
+app manifest and an offline reload.
 
 
 ## License
