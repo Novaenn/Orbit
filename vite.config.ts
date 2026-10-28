@@ -4,8 +4,12 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// GitHub Pages serves this project at /Orbit/; local dev and tests stay at /.
+const base = process.env.BASE_PATH?.replace(/\/?$/, '/') ?? '/'
+
 // https://vite.dev/config/
 export default defineConfig({
+  base,
   plugins: [
     react(),
     tailwindcss(),
@@ -13,14 +17,14 @@ export default defineConfig({
       registerType: 'prompt',
       injectRegister: false,
       manifest: {
-        id: '/',
+        id: base,
         name: 'Orbit',
         short_name: 'Orbit',
         description: 'Local-first running insights from your intervals.icu export.',
         lang: 'en',
         dir: 'ltr',
-        start_url: '/',
-        scope: '/',
+        start_url: base,
+        scope: base,
         display: 'standalone',
         theme_color: '#3f51b5',
         background_color: '#3f51b5',
@@ -35,7 +39,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,svg,png,ico,woff,woff2,webmanifest}'],
         // The manifest and its icons are added by the plugin; keep them out of the glob.
         globIgnores: ['manifest.webmanifest', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/maskable-512.png'],
-        navigateFallback: 'index.html',
+        navigateFallback: `${base}index.html`,
         cleanupOutdatedCaches: true,
         clientsClaim: true,
       },
