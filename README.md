@@ -11,11 +11,9 @@ bests, and trends. There is no account and nothing is uploaded — your data sta
 
 ## Screenshots
 
-| Overview | Races |
-| :---: | :---: |
-| ![Orbit overview showing weekly volume, fitness and form, and the running calendar](docs/screenshots/overview.webp) | ![Orbit races showing predictions, personal bests, and race history](docs/screenshots/races.webp) |
-| **Insights** | **Activities** |
-| ![Orbit insights showing fitness progression, heart-rate zones, cadence, and training patterns](docs/screenshots/insights.webp) | ![Orbit activities list with search, filters, and race tagging](docs/screenshots/activities.webp) |
+<p align="center">
+  <img src="docs/screenshots/overview.webp" alt="Orbit overview showing weekly volume, fitness and form, and the running calendar">
+</p>
 
 ## Running it
 
