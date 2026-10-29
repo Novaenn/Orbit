@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
-// GitHub Pages serves this project at /Orbit/; local dev and tests stay at /.
+// The Pages build uses /Orbit/app/; local dev and app tests stay at /.
 const base = process.env.BASE_PATH?.replace(/\/?$/, '/') ?? '/'
 
 // https://vite.dev/config/
@@ -17,7 +17,8 @@ export default defineConfig({
       registerType: 'prompt',
       injectRegister: false,
       manifest: {
-        id: base,
+        // Keep the installed app's identity when its launch path changes.
+        id: process.env.PWA_ID ?? base,
         name: 'Orbit',
         short_name: 'Orbit',
         description: 'Local-first running insights from your intervals.icu export.',

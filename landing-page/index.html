@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta name="description" content="See the story behind your miles. Orbit turns your intervals.icu export into training insights, race predictions, and personal bests. Your data stays in your browser." />
+    <meta property="og:title" content="Orbit — Every run. A clearer picture." />
+    <meta property="og:description" content="A local-first dashboard for your running history. Bring your intervals.icu CSV and see your training come together." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samuelebella.com/Orbit/" />
+    <meta property="og:image" content="https://samuelebella.com/Orbit/assets/overview.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="canonical" href="https://samuelebella.com/Orbit/" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      // Older home-screen installs can still launch the former app URL.
+      if (matchMedia('(display-mode: standalone)').matches || navigator.standalone === true) {
+        location.replace(new URL('./app/' + location.search + location.hash, location.href))
+      }
+    </script>
+    <script src="./script.js" defer></script>
+    <title>Orbit — Every run. A clearer picture.</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#" aria-label="Orbit home"><img src="./assets/favicon.svg" alt="" width="36" height="36" /><span>Orbit<span class="brand-dot">.</span></span></a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#your-data">Your data</a>
+        </nav>
+        <a class="button button-small button-dark" href="./app/">Get Orbit <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" hidden><a href="#features">Features</a><a href="#how-it-works">How it works</a><a href="#your-data">Your data</a><a href="./app/">Get Orbit ↗</a></nav>
+    </header>
+
+    <main id="main">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Every run.<br />A clearer<br /><span class="title-accent">picture.</span></h1>
+          <p class="hero-description">You put in the miles. Orbit helps you see what they add up to. Turn your intervals.icu export into a clear view of your training, progress, and potential.</p>
+          <div class="hero-actions"><a class="button button-primary" href="./app/">Get Orbit <span aria-hidden="true">↗</span></a><a class="text-link" href="#features">Take a closer look <span aria-hidden="true">↓</span></a></div>
+          <p class="hero-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg>No account. No uploads. Just your running.</p>
+        </div>
+        <div class="hero-visual" aria-label="Illustrative training dashboard with weekly running volume and consistency">
+          <svg class="orbital-lines" viewBox="0 0 700 700" fill="none" aria-hidden="true"><circle cx="350" cy="350" r="325"/><circle cx="350" cy="350" r="255"/><circle cx="350" cy="350" r="185"/><circle class="satellite satellite-orange" cx="105" cy="137" r="7"/><circle class="satellite satellite-blue" cx="591" cy="438" r="9"/></svg>
+          <div class="training-preview">
+            <div class="preview-heading"><span class="preview-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg></span><span>Your running, in focus</span><span class="preview-dots" aria-hidden="true">···</span></div>
+            <div class="preview-content">
+              <div class="preview-kicker">WEEKLY VOLUME <span>Last 12 weeks</span></div>
+              <div class="preview-value">49.0 <span>km / week</span></div>
+              <p class="preview-subtitle">One run at a time. It all adds up.</p>
+              <div class="bar-chart" aria-hidden="true">
+                <div class="chart-grid"><span>80</span><span>60</span><span>40</span><span>20</span></div>
+                <div class="bars"><i style="--bar:64%"></i><i style="--bar:74%"></i><i style="--bar:50%"></i><i style="--bar:65%"></i><i style="--bar:47%"></i><i style="--bar:80%"></i><i style="--bar:53%"></i><i style="--bar:61%"></i><i style="--bar:29%"></i><i style="--bar:44%"></i><i style="--bar:58%"></i><i class="current-bar" style="--bar:23%"></i></div>
+                <div class="chart-average"><span>avg.</span></div>
+              </div>
+              <div class="chart-months"><span>August</span><span>September</span><span>October</span></div>
+              <div class="preview-bottom"><span><i></i> The bigger picture, week by week</span><span>km</span></div>
+            </div>
+          </div>
+          <div class="consistency-note"><span class="consistency-symbol" aria-hidden="true">↗</span><div><strong>Small efforts.<br />Visible progress.</strong><span>Find your rhythm with Orbit.</span></div><svg viewBox="0 0 90 40" aria-hidden="true"><path d="M2 34 14 29 25 32 36 18 48 22 59 12 70 15 86 3"/></svg></div>
+          <p class="illustration-label">Illustrative training data</p>
+        </div>
+      </section>
+
+      <div class="principles container" aria-label="Orbit at a glance"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>Local by design</span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></svg>Free & open source</span><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18H7zM10 17h4"/></svg>Desktop to finish line</span><span class="principles-last">Built around your intervals.icu export <span aria-hidden="true">↗</span></span></div>
+
+      <section class="section features-section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <div class="section-heading"><div><h2 id="features-title">Less spreadsheet.<br />More perspective.</h2></div><p>Your running history, connected. From this week’s mileage to the patterns that emerge over a year, see the details without losing the big picture.</p></div>
+          <figure class="dashboard-figure">
+            <div class="dashboard-toolbar"><div><span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span></div><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg> Your data stays right here</span><a href="./assets/overview.webp" class="expand-preview" aria-label="View full dashboard screenshot">View full dashboard <span aria-hidden="true">↗</span></a></div>
+            <div class="dashboard-image"><img src="./assets/overview.webp" alt="Orbit dashboard with weekly volume, fitness and form charts, and a running calendar, populated with mock activities." width="1440" height="1500" loading="lazy" /></div>
+            <figcaption>Meet your training overview. Screenshot uses sample activities.</figcaption>
+          </figure>
+          <div class="feature-columns">
+            <article><span class="feature-number">01</span><h3>Follow the miles</h3><p>Compare weekly volume in kilometers or hours. Spot a steady build, a lighter week, and the consistency behind your progress.</p></article>
+            <article><span class="feature-number">02</span><h3>Understand the effort</h3><p>See fitness, fatigue, and form together. Put your training load in context as your season unfolds.</p></article>
+            <article><span class="feature-number">03</span><h3>Find your rhythm</h3><p>A running calendar makes your consistency visible. Zoom out from individual sessions to months of showing up.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section details-section container" aria-labelledby="details-title">
+        <div class="details-intro"><h2 id="details-title">Know where you are.<br />See what’s ahead.</h2><p>Explore your races, recognize your progress, and get to know the habits behind your running.</p></div>
+        <div class="details-grid">
+          <article class="race-card"><div class="card-topline"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8v7a4 4 0 0 1-8 0Zm0 2H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 2v5m-4 2h8"/></svg></span><span class="small-label">RACE DAY, IN CONTEXT</span></div><h3>A finish line.<br />A new starting point.</h3><p>Keep your race history and personal bests together. Explore estimates for 5K, 10K, and half marathon, with confidence ranges and the races behind each prediction.</p><div class="race-distances" aria-label="Race prediction distances"><span><strong>5</strong>km</span><span><strong>10</strong>km</span><span><strong>21.1</strong>km</span></div><span class="card-footnote">Predictions informed by your recorded races.</span></article>
+          <div class="detail-stack"><article class="insight-card"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17h3l3-9 5 12 4-16 3 8"/></svg></span><div><h3>Turn patterns into perspective.</h3><p>Explore heart-rate zone distribution, cadence trends, fitness progression, and training patterns across your history.</p><div class="zone-strip" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="card-footnote">Intensity, consistency, and everything between.</span></div></article><article class="activity-card"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><h3>Every session has its details.</h3><p>Browse your activities and look closer at pace, heart rate, elevation, training load, and more, wherever those fields are available in your export.</p></div></article></div>
+        </div>
+      </section>
+
+      <section class="section how-section" id="how-it-works" aria-labelledby="how-title"><div class="container"><div class="section-heading"><div><h2 id="how-title">Your next insight is<br />already in your data.</h2></div><p>No new tracking routine. No account to create. Start with the running history you already have.</p></div><ol class="steps"><li><span class="step-number">01<span aria-hidden="true">↗</span></span><h3>Export your activities</h3><p>Download your activities as a CSV from intervals.icu.</p><a class="inline-link" href="https://intervals.icu/" target="_blank" rel="noopener noreferrer">Go to intervals.icu <span aria-hidden="true">↗</span></a></li><li><span class="step-number">02<span aria-hidden="true">↓</span></span><h3>Bring them into Orbit</h3><p>Open Orbit and choose your CSV, or drop it into the app on desktop. It’s read right on your device.</p></li><li><span class="step-number">03<span aria-hidden="true">◎</span></span><h3>See your running unfold</h3><p>Explore your overview, races, insights, and activities. Import a fresh export whenever you want to catch up.</p></li></ol></div></section>
+
+      <section class="section privacy-section container" id="your-data" aria-labelledby="privacy-title"><div class="privacy-visual" aria-hidden="true"><div class="privacy-orbit orbit-outer"></div><div class="privacy-orbit orbit-inner"></div><span class="privacy-satellite"></span><div class="privacy-lock"><svg viewBox="0 0 64 64"><rect x="15" y="28" width="34" height="28" rx="7"/><path d="M22 28V18a10 10 0 0 1 20 0v10"/><circle cx="32" cy="41" r="3"/><path d="M32 44v4"/></svg></div><span class="device-label">YOUR DEVICE</span><span class="private-label"><span class="status-dot"></span> Local. Personal. Yours.</span></div><div class="privacy-copy"><h2 id="privacy-title">A personal dashboard.<br />In every sense.</h2><p>Your training history belongs to you. Orbit reads your CSV on your device and keeps your activities and race tags in your browser. There’s no Orbit account and no activity upload.</p><ul class="privacy-points"><li><span aria-hidden="true">✓</span> Activities stored in your browser</li><li><span aria-hidden="true">✓</span> Clear your data from the app at any time</li><li><span aria-hidden="true">✓</span> Open source, so you can see how it works</li></ul><p class="privacy-note">Browser storage is specific to this device and browser. Keep your original CSV as a backup.</p></div></section>
+
+      <section class="section faq-section container" aria-labelledby="faq-title"><div><h2 id="faq-title">Before your<br />first look.</h2></div><div class="faq-list"><details><summary>What do I need to use Orbit?<span aria-hidden="true">+</span></summary><p>A modern browser and an activities CSV exported from intervals.icu. Orbit uses the fields in your export to build your dashboard; some insights depend on data such as heart rate or training load.</p></details><details><summary>Is Orbit free?<span aria-hidden="true">+</span></summary><p>Yes. Orbit is free and open source under the GNU General Public License v3.0. You can explore the code and run it yourself from <a href="https://github.com/Novaenn/Orbit/">the GitHub repository</a>.</p></details><details><summary>How do I add new activities?<span aria-hidden="true">+</span></summary><p>Export an updated CSV from intervals.icu, then use the upload button in Orbit to load it. Orbit works from the file you provide rather than syncing directly with your account.</p></details><details><summary>Can I use it on my phone?<span aria-hidden="true">+</span></summary><p>Yes. Orbit adapts to desktop and mobile and supports installation as a web app. Imported data stays in the browser on the device where you loaded it.</p></details><details><summary>How should I read race predictions?<span aria-hidden="true">+</span></summary><p>They’re estimates based on the races you’ve recorded, with ranges and confidence indicators. Recent races at similar distances provide more useful context. They’re a way to explore your potential, rather than a promised finish time.</p></details></div></section>
+
+      <section class="closing-section"><div class="container closing-inner"><div><h2>The runs are yours.<br />So is the bigger picture.</h2><p>Bring your history. Find your perspective.</p></div><a class="button button-light" href="./app/">Get Orbit <span aria-hidden="true">↗</span></a></div><svg class="closing-orbits" viewBox="0 0 500 500" aria-hidden="true"><circle cx="250" cy="250" r="230"/><circle cx="250" cy="250" r="170"/><circle cx="250" cy="250" r="110"/></svg></section>
+    </main>
+    <footer class="site-footer container"><div><a class="brand" href="#" aria-label="Orbit home"><img src="./assets/favicon.svg" alt="" width="28" height="28" /><span>Orbit<span class="brand-dot">.</span></span></a><p>A little perspective on every mile.</p></div><div class="footer-links"><a href="https://github.com/Novaenn/Orbit/">GitHub <span aria-hidden="true">↗</span></a><a href="https://github.com/Novaenn/Orbit/blob/main/LICENSE">GPL-3.0 license <span aria-hidden="true">↗</span></a><a href="#your-data">Your data</a><span>© 2026 Samuele Bella</span></div></footer>
+
+    <dialog class="screenshot-dialog" aria-label="Full Orbit dashboard screenshot"><div class="dialog-toolbar"><span>Orbit overview · sample activities</span><button type="button" class="dialog-close" aria-label="Close screenshot">Close <span aria-hidden="true">×</span></button></div><img src="./assets/overview.webp" alt="Full Orbit overview with weekly running volume, fitness, fatigue and form, and a year of runs in the calendar." width="1440" height="1500" /></dialog>
+  </body>
+</html>

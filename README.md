@@ -27,6 +27,30 @@ npm run preview   # serve the production build, including the service worker
 Open the app and choose the activities CSV exported from intervals.icu. Your imported activities and
 race tags are saved in the browser's localStorage.
 
+## Website and deployment
+
+- [Landing page](https://samuelebella.com/Orbit/)
+- [Running dashboard](https://samuelebella.com/Orbit/app/)
+
+The existing GitHub Pages workflow builds and deploys both together on pushes to `main`:
+
+```bash
+npm run build:pages    # combined static site in dist-pages/
+npm run preview:pages  # http://127.0.0.1:4175/Orbit/
+npm run test:pages     # build and check both paths, offline use, and migration
+```
+
+`npm run dev` and `npm run build` still run/build the dashboard on its own. The Pages build sets
+`BASE_PATH=/Orbit/app/` and `PWA_ID=/Orbit/`, copies the landing page to the deployment root and the
+dashboard into `app/`, and keeps the old manifest and worker URLs available for existing installs.
+The app's manifest keeps its identity while its launch URL and offline scope move to `/Orbit/app/`.
+
+Existing activity data stays available because both paths share the same HTTPS origin and storage
+keys. The compatibility worker at `/Orbit/sw.js` replaces the former cached app, moves open app tabs
+to the new path, and removes only the former worker's precache. Old home-screen launches are also
+forwarded to the dashboard, preserving query strings and selected tabs. The landing page does not
+install a service worker for new visitors. Keep the compatibility files in future deployments.
+
 - **Upload new CSV** is the upload icon in the top app bar.
 - **Data details** and **Clear data** are in the ⋮ menu.
 
